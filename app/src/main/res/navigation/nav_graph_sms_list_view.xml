@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_sms_list_view"
+	app:startDestination="@id/SmsListViewFragment">
+
+    <fragment
+        android:id="@+id/SmsListViewFragment"
+        android:name="com.ukonect.www.ui.sms.SmsListViewFragment"
+        tools:layout="@layout/sms_list_view_fragment" >
+
+        <action
+            android:id="@+id/move_to_nav_graph_sms_view"
+            app:destination="@id/nav_graph_sms_view"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"/>
+    </fragment>
+
+
+    <include
+        app:graph="@navigation/nav_graph_sms_view"/>
+
+</navigation>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+		<import type="com.ukonect.www.util.Utils"/>
+        <variable name="chat_msg" type="com.ukonect.www.data.msg.ChatMessage"/>
+        <variable name="user" type="com.ukonect.www.data.User"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chat_me_up_sent_root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@android:color/transparent">
+
+
+        <TextView
+            android:id="@+id/chat_me_up_sent_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/sent_msg_text_view"
+            android:maxWidth="200dp"
+            android:minWidth="80dp"
+            android:shadowColor="#FFFFFF"
+            android:text="@{chat_msg.text}"
+            android:textColor="@color/colorUkonectTextLight"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Big text1 Big text2 Big text3 Big text4 Big text5 Big text6  Big text7  Big text8  Big text9  Big text10  Big text11  Big text612 " />
+
+        <TextView
+            android:id="@+id/chat_me_up_sent_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginRight="5dp"
+            android:textSize="12dp"
+            android:text="@{Utils.formatTime(chat_msg.time)}"
+            tools:text="Yesterday, 20:47"
+            app:layout_constraintEnd_toStartOf="@id/chat_me_up_sent_status"
+            app:layout_constraintTop_toBottomOf="@id/chat_me_up_sent_msg" />
+
+        <TextView
+            android:id="@+id/chat_me_up_sent_status"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:text="@{Utils.msgStatusTick(chat_msg.status)}"
+            app:msgStatusColor="@{chat_msg.status}"
+            tools:text="\u2713\u2713"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chat_me_up_sent_msg"
+             />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

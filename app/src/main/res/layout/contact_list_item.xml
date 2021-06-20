@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="contact" type="com.ukonect.www.data.User"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_small_height"
+        android:background="@android:color/background_light">
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/contact_profile_photo"
+            android:layout_width="@dimen/profile_image_small_size"
+            android:layout_height="@dimen/profile_image_small_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:imageUrl="@{contact.photo_url}"
+            app:imagePlaceholder="@{@drawable/ic_person_blue_70dp}"
+            tools:src="@drawable/ic_person_blue_70dp"
+            />
+
+        <TextView
+            android:id="@+id/contact_full_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            android:singleLine="true"
+            android:text="@{contact.display_name}"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/contact_profile_photo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="The Name The Name The Name" />
+
+
+        <include
+            layout="@layout/list_item_divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/contact_profile_photo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

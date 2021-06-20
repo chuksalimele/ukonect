@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+		<import type="com.ukonect.www.util.Utils"/>
+        <variable name="user" type="com.ukonect.www.data.User"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        tools:layout="@layout/chat_me_up_fragment">
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/chat_me_up_header_profile_photo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:imagePlaceholder="@{@drawable/ic_person_blue_70dp}"
+            app:imageUrl="@{user.photo_url}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_person_blue_70dp" />
+
+        <TextView
+            android:id="@+id/chat_me_up_header_full_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="20dp"
+            android:singleLine="true"
+            android:text="@{user.display_name}"
+            android:textColor="@color/colorUkonectTextLight"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/chat_me_up_header_profile_photo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="The Name The Name The Name" />
+
+        <TextView
+            android:id="@+id/chat_me_up_header_last_seen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@{Utils.formatTime(user.last_seen)}"
+            android:textColor="@color/colorUkonectTextLight"
+            app:layout_constraintEnd_toEndOf="@+id/chat_me_up_header_full_name"
+            app:layout_constraintStart_toEndOf="@+id/chat_me_up_header_profile_photo"
+            app:layout_constraintTop_toBottomOf="@+id/chat_me_up_header_full_name"
+            tools:text="Last seen: 12:00AM|online" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

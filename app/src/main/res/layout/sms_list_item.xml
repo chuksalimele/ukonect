@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <import type="android.view.View"/>
+		<import type="com.ukonect.www.util.Utils"/>
+        <variable name="sms" type="com.ukonect.www.data.msg.SmsMessage"/>
+        <variable name="user" type="com.ukonect.www.data.User"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@android:color/background_light"
+        android:layout_height="@dimen/list_item_large_height">
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/sms_profile_photo"
+            android:layout_width="@dimen/list_item_small_height"
+            android:layout_height="@dimen/list_item_small_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:imageUrl="@{user.photo_url}"
+            app:imagePlaceholder="@{@drawable/ic_person_blue_70dp}"
+            tools:src="@drawable/ic_person_blue_70dp"/>
+
+        <TextView
+            android:id="@+id/sms_full_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:singleLine="true"
+            android:text="@{user.display_name}"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toStartOf="@+id/sms_unread_count"
+            app:layout_constraintStart_toEndOf="@+id/sms_profile_photo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="The Name" />
+
+        <TextView
+            android:id="@+id/sms_unread_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/unread_list_badge"
+            android:minWidth="15dp"
+            android:visibility="@{sms.read_count > 0? View.VISIBLE : View.GONE}"
+            android:text="@{``+sms.read_count}"
+            android:textAlignment="center"
+            android:textColor="@color/colorUkonectTextLight"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="9" />
+
+        <TextView
+            android:id="@+id/sms_msg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="20dp"
+            android:textSize="12dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sms_profile_photo"
+            app:layout_constraintTop_toBottomOf="@+id/sms_full_name"
+            android:text="@{sms.text}"
+            tools:text="This is the message that display some real cool stuff This is the message that display some real cool stuff" />
+
+        <TextView
+            android:id="@+id/sms_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="10dp"
+            android:singleLine="true"
+            android:text="@{Utils.formatTime(sms.time)}"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/sms_list_item_divider"
+            app:layout_constraintEnd_toStartOf="@+id/sms_status"
+            app:layout_constraintStart_toEndOf="@+id/sms_profile_photo"
+            tools:text="Today, 20:34" />
+
+
+        <TextView
+            android:id="@+id/sms_status"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@{Utils.msgStatusTick(sms.status)}"
+            app:layout_constraintBottom_toTopOf="@+id/sms_list_item_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:msgStatusColor="@{sms.status}"
+            tools:text="\u2713\u2713" />
+
+
+        <include
+            layout="@layout/list_item_divider"
+            android:id="@+id/sms_list_item_divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sms_profile_photo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

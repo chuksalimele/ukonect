@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <import type="android.view.View"/>
+		<import type="com.ukonect.www.util.Utils"/>
+        <variable name="chat_msg" type="com.ukonect.www.data.msg.ChatMessage"/>
+        <variable name="user" type="com.ukonect.www.data.User"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_medium_height"
+        android:background="@android:color/background_light">
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/chat_me_up_list_profile_photo"
+            android:layout_width="@dimen/list_item_small_height"
+            android:layout_height="@dimen/list_item_small_height"
+            app:imagePlaceholder="@{@drawable/ic_person_blue_70dp}"
+            app:imageUrl="@{user.photo_url}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_person_blue_70dp" />
+
+        <TextView
+            android:id="@+id/chat_me_up_list_full_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:singleLine="true"
+            android:text="@{user.display_name}"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/chat_me_up_list_time"
+            app:layout_constraintStart_toEndOf="@+id/chat_me_up_list_profile_photo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="The Name" />
+
+        <TextView
+            android:id="@+id/chat_me_up_list_msg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:singleLine="true"
+            android:text="@{chat_msg.text}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/chat_me_up_list_list_item_divider"
+            app:layout_constraintEnd_toStartOf="@+id/chat_me_up_list_unread_count"
+            app:layout_constraintStart_toEndOf="@+id/chat_me_up_list_msg_status"
+            tools:text="This is the mesay so" />
+
+
+        <include
+            android:id="@+id/chat_me_up_list_list_item_divider"
+            layout="@layout/list_item_divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/chat_me_up_list_profile_photo" />
+
+        <TextView
+            android:id="@+id/chat_me_up_list_msg_status"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/transparent"
+            android:text="@{Utils.msgStatusTick(chat_msg.status)}"
+            app:msgStatusColor="@{chat_msg.status}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/chat_me_up_list_msg"
+            app:layout_constraintStart_toEndOf="@+id/chat_me_up_list_profile_photo"
+            tools:text="\u2713\u2713" />
+
+        <TextView
+            android:id="@+id/chat_me_up_list_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="@{Utils.formatTime(chat_msg.time)}"
+            tools:text="12:00AM"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/chat_me_up_list_unread_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/unread_list_badge"
+            android:minWidth="15dp"
+            android:visibility="@{chat_msg.read_count > 0? View.VISIBLE : View.GONE}"
+            android:text="@{``+chat_msg.read_count}"
+            android:textAlignment="center"
+            android:textColor="@color/colorUkonectTextLight"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/chat_me_up_list_list_item_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="9" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

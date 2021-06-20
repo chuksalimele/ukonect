@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+		<import type="com.ukonect.www.util.Utils"/>
+        <variable name="sms" type="com.ukonect.www.data.msg.SmsMessage"/>
+        <variable name="user" type="com.ukonect.www.data.User"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sms_sent_root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@android:color/transparent">
+
+
+        <TextView
+            android:id="@+id/sms_received_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/received_msg_text_view"
+            android:minWidth="80dp"
+            android:maxWidth="200dp"
+            android:shadowColor="#FFFFFF"
+            android:text="@{sms.text}"
+            tools:text="Big text1 Big text2 Big text3 Big text4 Big text5 Big text6  Big text7  Big text8  Big text9  Big text10  Big text11  Big text612 "
+            android:textColor="@color/colorUkonectTextLight"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/sms_received_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="12dp"
+            android:text="@{Utils.formatTime(sms.received_time)}"
+            tools:text="Yesterday, 20:47"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sms_received_msg" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+        <!--Make sure the menu id matches the navigation destination id -->
+        <group
+            android:id="@+id/menu_top"
+            android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_graph_upgrade"
+                    android:icon="@drawable/ic_star_gold_32dp"
+                    android:title="Upgrade" />
+
+                <item
+                    android:id="@+id/nav_graph_personal_profile"
+                    android:icon="@drawable/ic_person_black_24dp"
+                    android:title="Personal Profile" />
+
+                <item
+                    android:id="@+id/nav_graph_contacts"
+                    android:icon="@drawable/ic_contacts_black_24dp"
+                    android:title="Contacts" />
+
+        </group>
+
+        <group
+            android:id="@+id/menu_middle"
+            android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_graph_call"
+                    android:icon="@drawable/ic_phone_black_24dp"
+                    android:title="Make Call" />
+
+                <item
+                    android:id="@+id/nav_graph_sms_list_view"
+                    android:icon="@drawable/ic_sms_black_24dp"
+                    android:title="Send SMS" />
+
+                <item
+                    android:id="@+id/nav_graph_chat_me_up_list"
+                    android:icon="@drawable/ic_chat_black_24dp"
+                    android:title="Chat Me Up" />
+
+                <item
+                    android:id="@+id/nav_graph_support_chat_view"
+                    android:icon="@drawable/ic_chat_black_24dp"
+                    android:title="Support Chat" />
+
+        </group>
+
+
+        <group
+            android:id="@+id/menu_bottom"
+            android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_graph_settings"
+                    android:icon="@drawable/ic_build_black_24dp"
+                    android:title="@string/action_settings" />
+
+                <item
+                    android:id="@+id/HelpFragment"
+                    android:icon="@drawable/ic_help_outline_black_24dp"
+                    android:title="Help" />
+
+                <item
+                    android:id="@+id/FaqFragment"
+                    android:icon="@drawable/ic_question_answer_black_24dp"
+                    android:title="FAQ" />
+
+        </group>
+</menu>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="user" type="com.ukonect.www.data.User"/>
+        <variable name="app_user" type="com.ukonect.www.data.AppUser"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/user_address_personal_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/user_address_home_address_lbl"
+                app:srcCompat="@drawable/ic_my_location_gray_24dp" />
+
+            <TextView
+                android:id="@+id/user_address_home_address_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:maxLines="5"
+                android:text="@{user.home_address}"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/user_address_personal_btn"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="No 4 Ovwain, Udu LGA " />
+
+            <TextView
+                android:id="@+id/user_address_home_address_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:text="Resident"
+                app:layout_constraintStart_toEndOf="@+id/user_address_personal_btn"
+                app:layout_constraintTop_toBottomOf="@+id/user_address_home_address_lbl"
+                />
+
+            <TextView
+                android:id="@+id/user_address_office_address_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:maxLines="5"
+                android:text="@{user.office_address}"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/user_address_personal_btn"
+                app:layout_constraintTop_toBottomOf="@+id/user_address_home_address_label"
+                tools:text="No. 45 Airport Road." />
+
+            <TextView
+                android:id="@+id/user_address_office_address_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                android:text="Office"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/user_address_personal_btn"
+                app:layout_constraintTop_toBottomOf="@+id/user_address_office_address_lbl"
+                 />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

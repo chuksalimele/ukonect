@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--Make sure the menu id matches the navigation destination id -->
+    <!--TESTING!!! TO BE REMOVED-->
+    <item
+        android:id="@+id/upgrade_app_bar_help"
+        android:icon="@drawable/ic_help_outline_white_24dp"
+        android:orderInCategory="103"
+        android:title="@string/help"
+        app:showAsAction="ifRoom" />
+
+</menu>

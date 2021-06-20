@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_contacts"
+    app:startDestination="@id/ContactsFragment">
+
+    <fragment
+        android:id="@+id/ContactsFragment"
+        android:name="com.ukonect.www.ui.contacts.ContactsFragment"
+        tools:layout="@layout/contacts_fragment" >
+        <!--TODO Add action-->
+    </fragment>
+
+
+</navigation>

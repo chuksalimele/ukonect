@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/user_small_card_popup_view_profile"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:orderInCategory="100"
+        android:title="View Profile"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/user_small_card_popup_chat_me_up"
+        android:icon="@drawable/ic_chat_black_24dp"
+        android:orderInCategory="101"
+        android:title="@string/chat_me_up"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/user_small_card_popup_call"
+        android:icon="@drawable/ic_call_black_24dp"
+        android:orderInCategory="102"
+        android:title="@string/make_call"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/user_small_card_popup_sms"
+        android:icon="@drawable/ic_sms_black_24dp"
+        android:orderInCategory="103"
+        android:title="@string/send_sms"
+        app:showAsAction="ifRoom" />
+
+</menu>

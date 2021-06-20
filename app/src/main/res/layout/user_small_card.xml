@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="app_user" type="com.ukonect.www.data.AppUser"/>
+        <variable name="user" type="com.ukonect.www.data.User"/>
+    </data>
+
+    <!--
+      Sorry I dropped using 'com.google.android.material.card.MaterialCardView' to using
+     'androidx.cardview.widget.CardView' for now because it require the app theme to be of
+      Theme.MaterialComponent or its descendant otherwise it throws Error upon inflating layout
+     -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/small_card"
+        android:layout_width="@dimen/user_small_card_width"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/colorBeepPrimaryLightBg">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:paddingBottom="10dp">
+
+
+            <ImageView
+                android:id="@+id/small_user_photo"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:background="@color/colorBeautifulBlueLightest"
+                android:scaleType="centerCrop"
+                app:imagePlaceholder="@{@drawable/ic_person_outline_blue_translucent_200dp}"
+                app:imageUrl="@{user.photo_url}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_person_outline_blue_translucent_200dp" />
+
+            <TextView
+                android:id="@+id/small_user_full_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:singleLine="true"
+                android:text="@{user.display_name}"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/small_user_popup_menu_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/small_user_photo"
+                tools:text="Full Name1 Full Name2 Full Name3 Full Name4" />
+
+            <ImageButton
+                android:id="@+id/small_user_popup_menu_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/ic_more_vert_black_24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/small_user_photo" />
+
+            <TextView
+                android:id="@+id/small_user_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:singleLine="true"
+                android:text="@{`Location: `+user.location.address}"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/small_user_full_name"
+                tools:text="Location: Warri, Nigeria" />
+
+            <TextView
+                android:id="@+id/small_user_phone_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:singleLine="true"
+                android:text="@{user.mobile_phone_no}"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/small_user_location"
+                tools:text="+2347032710379" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

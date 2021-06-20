@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_chat_me_up"
+    app:startDestination="@id/ChatMeUpFragment">
+
+    <fragment
+        android:id="@+id/ChatMeUpFragment"
+        android:name="com.ukonect.www.ui.chat.PrivateChatFragment"
+        tools:layout="@layout/chat_me_up_fragment" />
+
+
+</navigation>

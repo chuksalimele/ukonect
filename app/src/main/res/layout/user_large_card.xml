@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+		<import type="com.ukonect.www.util.Utils"/>
+        <variable name="app_user" type="com.ukonect.www.data.AppUser"/>
+        <variable name="user" type="com.ukonect.www.data.User"/>
+    </data>
+
+    <!--
+      Sorry I dropped using 'com.google.android.material.card.MaterialCardView' to using
+     'androidx.cardview.widget.CardView' for now because it require the app theme to be of
+      Theme.MaterialComponent or its descendant otherwise it throws Error upon inflating layout
+     -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="10dp"
+        android:elevation="10dp"
+        android:background="@color/colorBeepPrimaryLightBg">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:paddingBottom="10dp">
+
+
+            <ImageView
+                android:id="@+id/user_photo"
+                android:layout_width="300dp"
+                android:layout_height="194dp"
+                android:background="@color/colorBeautifulBlueLightest"
+                android:scaleType="centerCrop"
+                app:imagePlaceholder="@{@drawable/ic_person_outline_blue_translucent_200dp}"
+                app:imageUrl="@{user.photo_url}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_person_outline_blue_translucent_200dp" />
+
+            <TextView
+                android:id="@+id/user_full_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:singleLine="true"
+                android:text="@{user.display_name}"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/user_info"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_photo"
+                tools:text="Full Name1 Full Name2" />
+
+            <TextView
+                android:id="@+id/user_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:singleLine="true"
+                android:text="@{`Location: `+user.location.address}"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_full_name"
+                tools:text="Location: Warri, Nigeria" />
+
+            <TextView
+                android:id="@+id/user_phone_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:singleLine="true"
+                android:text="@{user.mobile_phone_no}"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_location"
+                tools:text="+2347032710379" />
+
+
+            <include
+                android:id="@+id/user_divider"
+                layout="@layout/list_item_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_phone_number" />
+
+            <TextView
+                android:id="@+id/user_last_seen"
+                android:layout_width="0dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/transparent"
+                android:singleLine="true"
+                android:text="@{Utils.formatTime(user.last_seen)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_divider"
+                tools:text="Last seen: 12:20 PM" />
+
+
+            <ImageButton
+                android:id="@+id/user_info"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_photo"
+                app:srcCompat="@drawable/ic_info_outline_blue_light_24dp" />
+
+            <ImageButton
+                android:id="@+id/user_send_sms"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toStartOf="@+id/user_make_call"
+                app:layout_constraintTop_toBottomOf="@+id/user_divider"
+                app:srcCompat="@drawable/ic_sms_blue_light_24dp" />
+
+            <ImageButton
+                android:id="@+id/user_make_call"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_divider"
+                app:srcCompat="@drawable/ic_call_blue_light_24dp" />
+
+            <ImageButton
+                android:id="@+id/user_chat_me_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toStartOf="@+id/user_send_sms"
+                app:layout_constraintTop_toBottomOf="@+id/user_divider"
+                app:srcCompat="@drawable/ic_chat_blue_24dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

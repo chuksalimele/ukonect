@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_home"
+    app:startDestination="@id/HomeFragment">
+
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="com.ukonect.www.ui.home.HomeFragment"
+        tools:layout="@layout/home_fragment" >
+
+
+        <action
+            android:id="@+id/move_to_nav_graph_signup"
+            app:destination="@id/nav_graph_signup" />
+
+        <action
+            android:id="@+id/move_to_nav_graph_sms_list_view"
+            app:destination="@id/nav_graph_sms_list_view"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"/>
+
+        <action
+            android:id="@+id/move_to_nav_graph_sms_view"
+            app:destination="@id/nav_graph_sms_view"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+
+        <action
+            android:id="@+id/move_to_nav_graph_chat_me_up_list"
+            app:destination="@+id/nav_graph_chat_me_up_list"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"/>
+
+        <action
+            android:id="@+id/move_to_nav_graph_chat_me_up"
+            app:destination="@+id/nav_graph_chat_me_up"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"/>
+
+        <action
+            android:id="@+id/move_to_nav_graph_support_chat_view"
+            app:destination="@id/nav_graph_support_chat_view"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+
+        <action
+            android:id="@+id/move_to_nav_graph_personal_profile"
+            app:destination="@id/nav_graph_personal_profile"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+
+        <action
+            android:id="@+id/move_to_nav_graph_search"
+            app:destination="@id/search"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+
+        <action
+            android:id="@+id/move_to_nav_graph_settings"
+            app:destination="@id/nav_graph_settings"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+
+        <action
+            android:id="@+id/move_to_nav_graph_contacts"
+            app:destination="@id/nav_graph_contacts"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+
+        <action
+            android:id="@+id/move_to_nav_graph_call"
+            app:destination="@id/nav_graph_call"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+
+        <action
+            android:id="@+id/move_to_nav_graph_upgrade"
+            app:destination="@id/nav_graph_upgrade"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+
+        <action
+            android:id="@+id/move_to_helpFragment"
+            app:destination="@id/HelpFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+
+        <action
+            android:id="@+id/move_to_FaqFragment"
+            app:destination="@id/FaqFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_HomeFragment_to_nav_graph_sms_list_view"
+            app:destination="@id/nav_graph_sms_list_view"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/HelpFragment"
+        android:name="com.ukonect.www.ui.support.HelpFragment"
+        android:label="HelpFragment"
+        tools:layout="@layout/help_fragment" >
+    <!-- TODO add action -->
+    </fragment>
+
+    <fragment
+        android:id="@+id/FaqFragment"
+        android:name="com.ukonect.www.ui.support.FaqFragment"
+        android:label="FaqFragment"
+        tools:layout="@layout/faq_fragment" >
+        <!-- TODO add action -->
+    </fragment>
+
+
+    <include
+        app:graph="@navigation/nav_graph_signup"/>
+
+    <include
+        app:graph="@navigation/nav_graph_call"/>
+
+    <include
+        app:graph="@navigation/nav_graph_contacts"/>
+
+    <include
+        app:graph="@navigation/nav_graph_personal_profile"/>
+
+    <include
+        app:graph="@navigation/nav_graph_chat_me_up_list"/>
+
+    <include
+        app:graph="@navigation/nav_graph_chat_me_up"/>
+
+    <include
+        app:graph="@navigation/nav_graph_sms_view"/>
+
+    <include
+        app:graph="@navigation/nav_graph_sms_list_view"/>
+
+    <include
+        app:graph="@navigation/nav_graph_settings"/>
+
+    <include
+        app:graph="@navigation/nav_graph_support_chat_view"/>
+
+    <include
+        app:graph="@navigation/nav_graph_upgrade"/>
+
+    <!--
+     Add global action to TheFragment. So to access TheFragment from any where do something
+     like this below:
+
+     viewButton.setOnClickListener { view ->
+        view.findNavController().navigate(R.id.action_global_TheFragment)
+     }
+    -->
+
+    <action
+        android:id="@+id/action_global_CallFragment"
+        app:destination="@id/nav_graph_call"
+        app:enterAnim="@anim/fragment_fade_enter"
+        app:exitAnim="@anim/fragment_fade_exit"/>
+
+    <action
+        android:id="@+id/action_global_ContactsFragment"
+        app:destination="@id/nav_graph_contacts"
+        app:enterAnim="@anim/fragment_fade_enter"
+        app:exitAnim="@anim/fragment_fade_exit"/>
+
+    <action
+        android:id="@+id/action_global_PersonalProfileFragment"
+        app:destination="@id/nav_graph_personal_profile"
+        app:enterAnim="@anim/fragment_fade_enter"
+        app:exitAnim="@anim/fragment_fade_exit"/>
+
+    <action
+        android:id="@+id/action_global_SmsViewFragment"
+        app:destination="@id/nav_graph_sms_view"
+        app:enterAnim="@anim/fragment_fade_enter"
+        app:exitAnim="@anim/fragment_fade_exit"/>
+
+    <action
+        android:id="@+id/action_global_ChatMeUpFragment"
+        app:destination="@id/nav_graph_chat_me_up"
+        app:enterAnim="@anim/fragment_fade_enter"
+        app:exitAnim="@anim/fragment_fade_exit"/>
+
+</navigation>

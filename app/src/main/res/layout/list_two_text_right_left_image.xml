@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <variable name="item" type="com.ukonect.www.data.ListItemData"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/list_item_small_height"
+        android:background="@android:color/background_light">
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/list_item_left_img"
+            android:layout_width="@dimen/list_item_small_height"
+            android:layout_height="@dimen/list_item_small_height"
+            app:imagePlaceholder="@{item.left_image_placeholder}"
+            app:imageUrl="@{item.left_image_url}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_help_outline_black_100dp" />
+
+        <TextView
+            android:id="@+id/list_item_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:text="@{item.text}"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/list_item_right_image"
+            app:layout_constraintStart_toEndOf="@+id/list_item_left_img"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Text " />
+
+        <TextView
+            android:id="@+id/list_item_sub_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:text="@{item.sub_text}"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/list_item_right_image"
+            app:layout_constraintStart_toEndOf="@+id/list_item_left_img"
+            app:layout_constraintTop_toBottomOf="@+id/list_item_text"
+            tools:text="Sub text" />
+
+
+        <ImageButton
+            android:id="@+id/list_item_right_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            app:imagePlaceholder="@{item.right_image_placeholder}"
+            app:imageUrl="@{item.right_image_url}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_help_outline_black_24dp" />
+
+        <include
+            layout="@layout/list_item_divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/list_item_left_img" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

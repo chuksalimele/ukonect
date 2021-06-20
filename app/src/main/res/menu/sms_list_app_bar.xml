@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--Make sure the menu id matches the navigation destination id -->
+    <item
+        android:id="@+id/nav_graph_sms_view"
+        android:icon="@drawable/ic_add_white_24dp"
+        android:orderInCategory="101"
+        android:title="@string/add"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search_white_24dp"
+        android:orderInCategory="103"
+        android:title="@string/search"
+        app:showAsAction="collapseActionView|ifRoom"
+        app:actionViewClass="android.widget.SearchView"  />
+
+    <item
+        android:id="@+id/sms_app_bar_all"
+        android:orderInCategory="104"
+        android:title="@string/all"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/sms_app_bar_inbox"
+        android:orderInCategory="105"
+        android:title="@string/inbox"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/sms_app_bar_outbox"
+        android:orderInCategory="106"
+        android:title="@string/outbox"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/sms_app_bar_sent"
+        android:orderInCategory="107"
+        android:title="@string/sent"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/sms_app_bar_draft"
+        android:orderInCategory="108"
+        android:title="@string/draft"
+        app:showAsAction="never" />
+
+</menu>

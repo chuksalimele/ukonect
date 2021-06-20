@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_support_chat_view"
+    app:startDestination="@id/SupportChatViewFragment">
+
+    <fragment
+        android:id="@+id/SupportChatViewFragment"
+        android:name="com.ukonect.www.ui.support.SupportChatViewFragment"
+        tools:layout="@layout/support_chat_view_fragment" >
+        <!--TODO Add action-->
+    </fragment>
+	
+</navigation>

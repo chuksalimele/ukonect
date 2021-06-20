@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_signup"
+    app:startDestination="@id/signUpWelcomeFragment">
+
+
+    <fragment
+        android:id="@+id/signUpWelcomeFragment"
+        android:name="com.ukonect.www.ui.signup.SignUpWelcomeFragment"
+        tools:layout="@layout/sign_up_welcome_fragment" >
+        <action
+            android:id="@+id/move_to_signUpPhoneNumberVerificationFragment"
+            app:destination="@id/signUpPhoneNumberVerificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpPhoneNumberVerificationFragment"
+        android:name="com.ukonect.www.ui.signup.SignUpPhoneNumberVerificationFragment"
+        tools:layout="@layout/sign_up_phone_number_verification_fragment">
+        <action
+            android:id="@+id/move_to_signUpConfirmVerificationCodeFragment"
+            app:destination="@id/signUpConfirmVerificationCodeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpConfirmVerificationCodeFragment"
+        android:name="com.ukonect.www.ui.signup.SignUpConfirmVerificationCodeFragment"
+        tools:layout="@layout/sign_up_confirm_verification_code_fragment">
+        <action
+            android:id="@+id/move_to_signUpFullNameFragment"
+            app:destination="@id/signUpFullNameFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFullNameFragment"
+        android:name="com.ukonect.www.ui.signup.SignUpFullNameFragment"
+        tools:layout="@layout/sign_up_full_name_fragment" >
+        <action
+            android:id="@+id/move_to_signUpProfilePhotoFragment"
+            app:destination="@id/signUpProfilePhotoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <!-- SignUpProfilePhotoFragment action will navigate to HomeFrame -->
+    <fragment
+        android:id="@+id/signUpProfilePhotoFragment"
+        android:name="com.ukonect.www.ui.signup.SignUpProfilePhotoFragment"
+        tools:layout="@layout/sign_up_profile_photo_fragment" >
+        <action
+            android:id="@+id/move_to_homeFragment"
+            app:destination="@id/HomeFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/HomeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>

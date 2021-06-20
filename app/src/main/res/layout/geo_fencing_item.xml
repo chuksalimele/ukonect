@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+        <data>
+
+            <variable
+                name="user"
+                type="com.ukonect.www.data.User" />
+
+            <variable
+                name="app_user"
+                type="com.ukonect.www.data.AppUser" />
+        </data>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/geo_fencing_location_proximity_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/geo_fencing_locaton_proximity_notification_lbl"
+                    app:srcCompat="@drawable/ic_track_changes_blue_24dp" />
+
+                <TextView
+                    android:id="@+id/geo_fencing_locaton_proximity_notification_lbl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:maxLines="5"
+                    android:text="Location Priximity Notification"
+                    android:textColor="@color/design_default_color_on_secondary"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/geo_fencing_location_proximity_btn"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/geo_fencing_selected_poriximity_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    tools:text="1000km"
+                    app:layout_constraintStart_toEndOf="@+id/geo_fencing_location_proximity_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/geo_fencing_locaton_proximity_notification_lbl" />
+
+                <include
+                    android:id="@+id/geo_fencing_office_divider"
+                    layout="@layout/list_item_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/geo_fencing_location_proximity_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/geo_fencing_selected_poriximity_label" />
+
+
+                <TextView
+                    android:id="@+id/geo_fencing_in_and_out_range_with_time_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:maxLines="2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/geo_fencing_location_proximity_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/geo_fencing_office_divider"
+                    tools:text="Out of range since 05.00pm yesterday" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+</layout>

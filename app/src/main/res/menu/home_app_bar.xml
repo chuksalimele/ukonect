@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--Make sure the menu id matches the navigation destination id -->
+    <item
+        android:id="@+id/nav_graph_settings"
+        android:icon="@drawable/ic_build_white_24dp"
+        android:orderInCategory="300"
+        android:title="@string/title_activity_settings"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/nav_graph_call"
+        android:icon="@drawable/ic_call_white_24dp"
+        android:orderInCategory="101"
+        android:title="@string/make_call"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nav_graph_sms_list_view"
+        android:icon="@drawable/ic_sms_white_24dp"
+        android:orderInCategory="102"
+        android:title="@string/send_sms"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search_white_24dp"
+        android:orderInCategory="103"
+        android:title="@string/search"
+        app:showAsAction="collapseActionView|ifRoom"
+        app:actionViewClass="android.widget.SearchView"  />
+
+
+    <item
+        android:id="@+id/backup_contacts"
+        android:icon="@drawable/ic_backup_white_24dp"
+        android:orderInCategory="104"
+        android:title="@string/backup_contacts"
+        app:showAsAction="ifRoom"/>
+
+</menu>

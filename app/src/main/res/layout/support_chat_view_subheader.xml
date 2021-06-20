@@ -1,0 +1,71 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="chate_mate" type="com.ukonect.www.data.User"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@android:color/background_light"
+        android:layout_height="@dimen/list_item_small_height">
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/support_chat_view_subheader_profile_photo"
+            android:layout_width="@dimen/list_item_small_height"
+            android:layout_height="@dimen/list_item_small_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:imageUrl="@{chate_mate != null ? chate_mate.photo_url: null}"
+            app:imagePlaceholder="@{@drawable/ic_person_blue_70dp}"
+            tools:src="@drawable/ic_person_blue_70dp"/>
+
+        <TextView
+            android:id="@+id/support_chat_view_subheader_full_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:singleLine="true"
+            android:text="@{chate_mate != null ? chate_mate.display_name:``}"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/support_chat_view_subheader_img_btn"
+            app:layout_constraintStart_toEndOf="@+id/support_chat_view_subheader_profile_photo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="The Support Name" />
+
+        <TextView
+            android:id="@+id/support_chat_view_subheader_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="20dp"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:singleLine="true"
+            app:layout_constraintEnd_toStartOf="@+id/support_chat_view_subheader_img_btn"
+            app:layout_constraintStart_toEndOf="@+id/support_chat_view_subheader_profile_photo"
+            app:layout_constraintTop_toBottomOf="@+id/support_chat_view_subheader_full_name"
+            android:text=""
+            tools:text="e.g online, typing..." />
+
+
+        <include
+            layout="@layout/list_item_divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

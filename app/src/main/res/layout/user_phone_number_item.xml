@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="user" type="com.ukonect.www.data.User"/>
+        <variable name="app_user" type="com.ukonect.www.data.AppUser"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/user_phone_number_personal_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/user_phone_number_personal_lbl"
+                app:srcCompat="@drawable/ic_call_blue_light_24dp" />
+
+            <TextView
+                android:id="@+id/user_phone_number_personal_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/user_phone_number_sms_mobile_btn"
+                app:layout_constraintStart_toEndOf="@+id/user_phone_number_personal_btn"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@{user.mobile_phone_no}"
+                tools:text="+2348032765849" />
+
+            <TextView
+                android:id="@+id/user_phone_number_personal_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:text="Mobile"
+                app:layout_constraintStart_toEndOf="@+id/user_phone_number_personal_btn"
+                app:layout_constraintTop_toBottomOf="@+id/user_phone_number_personal_lbl" />
+
+            <ImageButton
+                android:id="@+id/user_phone_number_sms_mobile_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/user_phone_number_personal_lbl"
+                app:srcCompat="@drawable/ic_sms_blue_light_24dp" />
+
+            <ImageButton
+                android:id="@+id/user_phone_number_call_work_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/user_phone_number_work_lbl"
+                app:srcCompat="@drawable/ic_call_blue_light_24dp" />
+
+            <TextView
+                android:id="@+id/user_phone_number_work_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/design_default_color_on_secondary"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/user_phone_number_sms_mobile_btn"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/user_phone_number_personal_btn"
+                app:layout_constraintTop_toBottomOf="@+id/user_phone_number_personal_label"
+                android:text="@{user.work_phone_no}"
+                tools:text="+23487055544421" />
+
+            <TextView
+                android:id="@+id/user_phone_number_work_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                android:text="Work"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/user_phone_number_personal_btn"
+                app:layout_constraintTop_toBottomOf="@+id/user_phone_number_work_lbl"
+                 />
+
+            <ImageButton
+                android:id="@+id/user_phone_number_sms_work_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/user_phone_number_work_lbl"
+                app:srcCompat="@drawable/ic_sms_blue_light_24dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
